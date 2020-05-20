@@ -10,14 +10,14 @@
   
 <?php       
     // Connecting, selecting database
-    $dbconn = pg_connect("host= port= dbname= user= password="")
+    $dbconn = pg_connect("host= port= dbname= user= password=")
     or die('Could not connect: ' . pg_last_error());
 
     //collect
     if(isset($_POST['search'])) {
         $searchq = $_POST['search'];
         // Performing SQL query
-        $q='SELECT gid, own1 FROM chester_parcels WHERE "pin_map" = '.$searchq;
+        $q='SELECT loc_addres, own1 FROM chester_parcels WHERE "pin_map" = '.$searchq;
         $result = pg_query($q);
 
         $row = pg_fetch_row($result);
@@ -30,5 +30,3 @@
 
 ?>
 </div>  
-git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
